@@ -13,11 +13,6 @@ steps:
     # Required
     url: ""
 
-    # The root changelog
-    # string
-    # Optional
-    changelogFile: ""
-
     # The default catalog name to use for the database connection
     # string
     # Optional
@@ -37,16 +32,6 @@ steps:
     # string
     # Optional
     driverPropertiesFile: ""
-
-    # Used to identify the specific Connection in which to record or extract data at Liquibase Hub. Available in your Liquibase Hub Project at https://hub.liquibase.com.
-    # string
-    # Optional
-    hubConnectionId: ""
-
-    # Used to identify the specific Project in which to record at Liquibase Hub. Available in your Liquibase Hub account at https://hub.liquibase.com.
-    # string
-    # Optional
-    hubProjectId: ""
 
     # Password to use to connect to the database
     # string
