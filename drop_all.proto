@@ -18,11 +18,14 @@ message DropAllRequest {
   optional string default_schema_name = 2; // The default schema name to use for the database connection
   optional string driver = 3; // The JDBC driver class
   optional string driver_properties_file = 4; // The JDBC driver properties file
-  optional string password = 5; // Password to use to connect to the database
-  optional string schemas = 6; // Schemas to include in drop
-  string url = 7; // *required* The JDBC database connection URL
-  optional string username = 8; // Username to use to connect to the database
-  liquibase.GlobalOptions global_options = 9;
+  optional bool drop_dbclhistory = 5; // [PRO] If true, the database changelog history table will be dropped
+  bool force = 6; // *required* Argument to allow use of dropAll with values of 'true' or 'false'. The default is 'false'.
+  optional string password = 7; // Password to use to connect to the database
+  bool require_force = 8; // *required* Argument to require user of dropAll to supply a 'force' argument, with values of 'true' or 'false'. The default is 'false'.
+  optional string schemas = 9; // Schemas to include in drop
+  string url = 10; // *required* The JDBC database connection URL
+  optional string username = 11; // Username to use to connect to the database
+  liquibase.GlobalOptions global_options = 12;
 }
 
 message Response {

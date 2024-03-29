@@ -6,8 +6,18 @@ Drop all database objects owned by the user
 ```yaml
 steps:
 - uses: actions/checkout@v3
-- uses: liquibase-github-actions/drop-all@v4.26.0
+- uses: liquibase-github-actions/drop-all@v4.27.0
   with:
+    # Argument to allow use of dropAll with values of "true" or "false". The default is "false".
+    # bool
+    # Required
+    force: ""
+
+    # Argument to require user of dropAll to supply a "force" argument, with values of "true" or "false". The default is "false".
+    # bool
+    # Required
+    requireForce: ""
+
     # The JDBC database connection URL
     # string
     # Required
@@ -32,6 +42,11 @@ steps:
     # string
     # Optional
     driverPropertiesFile: ""
+
+    # [PRO] If true, the database changelog history table will be dropped
+    # bool
+    # Optional
+    dropDbclhistory: ""
 
     # Password to use to connect to the database
     # string
@@ -60,8 +75,10 @@ The liquibase drop all action accepts all valid liquibase global options as opti
 ```yaml
 steps:
   - uses: actions/checkout@v3
-  - uses: liquibase-github-actions/drop-all@v4.26.0
+  - uses: liquibase-github-actions/drop-all@v4.27.0
     with:
+      force: ""
+      requireForce: ""
       url: ""
       headless: true
       licenseKey: ${{ secrets.LIQUIBASE_LICENSE_KEY }}
